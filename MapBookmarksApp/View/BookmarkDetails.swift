@@ -35,6 +35,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     var fetchedResultsController: NSFetchedResultsController!
     var entity: NSEntityDescription? = nil
     var deletedBookmark = false
+    var savedBookmark:NSManagedObject? = nil
     
     var deleteAll = false
     
@@ -45,7 +46,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             titleField.text = bookmark!.title
         }
         navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: #selector(self.deleteBookmark))
-        let newBackButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(self.checkAndSave))
+        let newBackButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(self.checkSavePopup))
         self.navigationItem.leftBarButtonItem = newBackButton;
         
         // unnamed bookmark
@@ -56,13 +57,13 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         nearByPlacesTalbeView.dataSource = self
         nearByPlacesTalbeView.delegate = self
         
-        self.ForsqearPrepare()
+        self.ForsqearePrepare()
         
         entity = NSEntityDescription.entityForName(MapBookmark.entityClass, inManagedObjectContext:context)
 
     }
     
-    func ForsqearPrepare () {
+    func ForsqearePrepare () {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BookmarkDetails.reloadTableNearbyPlaces), name: API.notifications.venuesUpdated, object: nil)
         let realm = try! Realm()
         realm.beginWrite()
@@ -154,11 +155,13 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBAction func shouldBeCentered(sender: AnyObject) {
         self.shouldCentered = true
         self.setState()
+        self.checkAndSave()
         popToMap()
     }
     @IBAction func shouldGoToAction(sender: AnyObject) {
         self.shouldGoTo = true
         self.setState()
+        self.checkAndSave()
         popToMap()
     }
     
@@ -183,6 +186,11 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         self.setState()
     }
     
+    func checkSavePopup () {
+        checkAndSave ()
+        self.navigationController?.popViewControllerAnimated(true);
+    }
+    
     func checkAndSave () {
         if (self.titleField.text == "") {
             let refreshAlert = UIAlertController(title: "Name", message: "Can't be bookmark without name.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -203,7 +211,6 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             self.shouldReloadData = true
             self.setState()
             saveBookmark()
-            self.navigationController?.popViewControllerAnimated(true);
         }
     }
     
@@ -228,6 +235,16 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
+        
+        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 1]
+        var mapViewController: MapViewController
+        if navigationController?.parentViewController is MapViewController {
+            mapViewController = parentViewController as! MapViewController
+        }
+        else {
+            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as! MapViewController
+        }
+        mapViewController.selectedBookmark = mapBookmark as! MapBookmark;
     }
     
     func deleteBookmarkFromCoreData () {

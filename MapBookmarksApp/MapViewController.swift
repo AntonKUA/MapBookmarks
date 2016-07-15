@@ -9,6 +9,10 @@ import CoreData
 import MapKit
 
 class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
+    internal var selectedBookmark: MapBookmark? = nil
+    internal var shouldReloadData = false
+    internal var shouldCentered = false
+    internal var shouldGoTo = false
     
     @IBOutlet weak var MapView: MKMapView!
     let routeLabelText: String = "Route"
@@ -24,11 +28,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation = CLLocation()
     let annotationIdentifier = "annotationIdentifier"
-    var selectedBookmark: MapBookmark? = nil
-    
-    internal var shouldReloadData = false
-    internal var shouldCentered = false
-    internal var shouldGoTo = false
     
     let tableSegue = "SegueToBookmarksTable"
     let detailSegue = "DetailSegue"
