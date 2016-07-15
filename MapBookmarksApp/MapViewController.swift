@@ -50,12 +50,18 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     }
     
     func strandartNavigationBar () {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: routeLabelText, style: .Plain, target: self, action: #selector(loadData))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: routeLabelText, style: .Plain, target: self, action: #selector(startRoadRegime))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: bookmarksLabelText, style: .Plain, target: self, action: #selector(goToBookmarksTable))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
+    }
+    
+    func startRoadRegime () {
+        if (self.selectedBookmark != nil) {
+            self.showRoad(self.selectedBookmark!)
+        }
     }
     
     func goToBookmarksTable () {
@@ -254,6 +260,7 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     func hidePins() {
         let annotations = self.MapView.annotations
         for annotation in annotations {
+            annotation
             if annotation.coordinate.latitude != selectedBookmark?.latitude &&
                 annotation.coordinate.longitude != selectedBookmark?.longitude {
                 self.MapView.removeAnnotation(annotation)
@@ -269,8 +276,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
-        
-        
         
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier) as? MKPinAnnotationView
         if annotationView == nil {
@@ -293,6 +298,13 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
         }
         
         performSegueWithIdentifier(detailSegue, sender: view)
+    }
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        for bookmark in mapBookmarks {
+            if ((bookmark.latitude!.isEqualToNumber(view.annotation!.coordinate.latitude) && bookmark.longitude!.isEqualToNumber(view.annotation!.coordinate.longitude))) {
+                self.selectedBookmark = bookmark
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
