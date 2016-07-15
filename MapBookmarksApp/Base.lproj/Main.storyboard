@@ -33,8 +33,8 @@
                     <navigationItem key="navigationItem" id="Ucu-nR-ENx"/>
                     <connections>
                         <outlet property="MapView" destination="atE-2p-IRr" id="xJ3-ui-4mS"/>
-                        <segue destination="sbx-bh-Q5q" kind="show" identifier="SegueToBookmarksTable" id="mBS-li-KOE"/>
                         <segue destination="Iua-3i-x4G" kind="show" identifier="DetailSegue" id="1yX-YL-wUj"/>
+                        <segue destination="pR8-Xr-1Dm" kind="show" identifier="SegueToBookmarksTable" id="keo-0g-zTp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-pf-RNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,63 +42,35 @@
             <point key="canvasLocation" x="1190" y="977"/>
         </scene>
         <!--Bookmark Table-->
-        <scene sceneID="dpI-ud-eAZ">
+        <scene sceneID="qkf-fq-iDS">
             <objects>
-                <tableViewController id="sbx-bh-Q5q" customClass="BookmarkTable" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Bookmarks" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FSZ-xX-4of">
+                <tableViewController id="pR8-Xr-1Dm" customClass="BookmarkTable" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eae-lp-vkY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell2" id="wK3-wY-eve" customClass="BookmarkTableViewCell" customModule="MapBookmarksApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" id="VPf-HS-1vO">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wK3-wY-eve" id="Zud-sR-u4q">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPf-HS-1vO" id="ybR-6G-hnd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lk-5t-Wji">
-                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="label" destination="1Lk-5t-Wji" id="aSk-OS-buE"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="4eY-qe-WVr" customClass="BookmarkTableViewCell" customModule="MapBookmarksApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eY-qe-WVr" id="pCc-fT-VK5">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-a4-p1p">
-                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="sbx-bh-Q5q" id="6sM-k2-XKe"/>
-                            <outlet property="delegate" destination="sbx-bh-Q5q" id="GJr-oV-zRW"/>
+                            <outlet property="dataSource" destination="pR8-Xr-1Dm" id="ze9-wv-86f"/>
+                            <outlet property="delegate" destination="pR8-Xr-1Dm" id="Upu-Qa-h0g"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="tableView" destination="FSZ-xX-4of" id="8H2-Sx-BHk"/>
-                        <segue destination="Iua-3i-x4G" kind="show" id="2gi-Tv-I67"/>
+                        <segue destination="Iua-3i-x4G" kind="show" id="KoK-Lr-M20"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bV9-S2-eUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="REW-UZ-6SU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="977"/>
+            <point key="canvasLocation" x="1892" y="975"/>
         </scene>
         <!--Bookmark Details-->
         <scene sceneID="uOj-Vl-T5O">
@@ -196,6 +168,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2gi-Tv-I67"/>
+        <segue reference="KoK-Lr-M20"/>
     </inferredMetricsTieBreakers>
 </document>

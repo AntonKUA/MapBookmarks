@@ -247,6 +247,7 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     
     func clearRoute() {
         self.strandartNavigationBar()
+        self.MapView.removeOverlays(MapView.overlays)
         loadData()
     }
     
