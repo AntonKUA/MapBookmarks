@@ -1,0 +1,780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96A55157F66A6597F21CC5C6 /* Pods_MapBookmarksAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCBC1C9C6FEE1FC9C01EF3F /* Pods_MapBookmarksAppUITests.framework */; };
+		A424B5582FCC77FB19859D7B /* Pods_MapBookmarksAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A1A4486A2CF4BC7F371D94 /* Pods_MapBookmarksAppTests.framework */; };
+		C14E452B3DB2F8010FB20DEF /* Pods_MapBookmarksApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BEA54A5A36E96AF7B0EF7E /* Pods_MapBookmarksApp.framework */; };
+		E727BAEC1D39132B00610EDB /* FoursquareAPIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727BAEB1D39132B00610EDB /* FoursquareAPIConnector.swift */; };
+		E727BAEE1D392C7700610EDB /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727BAED1D392C7700610EDB /* Venue.swift */; };
+		E7621FB71D37D033000FF682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FB61D37D033000FF682 /* AppDelegate.swift */; };
+		E7621FBC1D37D033000FF682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7621FBA1D37D033000FF682 /* Main.storyboard */; };
+		E7621FBF1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7621FBD1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld */; };
+		E7621FC11D37D033000FF682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7621FC01D37D033000FF682 /* Assets.xcassets */; };
+		E7621FC41D37D033000FF682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7621FC21D37D033000FF682 /* LaunchScreen.storyboard */; };
+		E7621FCF1D37D033000FF682 /* MapBookmarksAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FCE1D37D033000FF682 /* MapBookmarksAppTests.swift */; };
+		E7621FDA1D37D033000FF682 /* MapBookmarksAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FD91D37D033000FF682 /* MapBookmarksAppUITests.swift */; };
+		E7621FE81D37E0B1000FF682 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FE71D37E0B1000FF682 /* MapViewController.swift */; };
+		E7621FEA1D37E494000FF682 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7621FE91D37E494000FF682 /* MapKit.framework */; };
+		E7621FFF1D3825DE000FF682 /* MapBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FFD1D3825DE000FF682 /* MapBookmark.swift */; };
+		E76220001D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7621FFE1D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift */; };
+		E76220021D38263A000FF682 /* MapBookmark+functionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76220011D38263A000FF682 /* MapBookmark+functionality.swift */; };
+		E7BBDCCB1D3875B50033D3AC /* BookmarkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */; };
+		E7BBDCCD1D38DCA80033D3AC /* BookmarkTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCC1D38DCA80033D3AC /* BookmarkTable.swift */; };
+		E7BBDCCF1D3906C40033D3AC /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7621FCB1D37D033000FF682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7621FAB1D37D033000FF682 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7621FB21D37D033000FF682;
+			remoteInfo = MapBookmarksApp;
+		};
+		E7621FD61D37D033000FF682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7621FAB1D37D033000FF682 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7621FB21D37D033000FF682;
+			remoteInfo = MapBookmarksApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		577F09CDA7F42442F875179A /* Pods-MapBookmarksAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppTests/Pods-MapBookmarksAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		68A1A4486A2CF4BC7F371D94 /* Pods_MapBookmarksAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapBookmarksAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CCBC1C9C6FEE1FC9C01EF3F /* Pods_MapBookmarksAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapBookmarksAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87DBB36A1DC38D94A9A08D0A /* Pods-MapBookmarksApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksApp/Pods-MapBookmarksApp.release.xcconfig"; sourceTree = "<group>"; };
+		8D7CD029731367A7125C5909 /* Pods-MapBookmarksAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppTests/Pods-MapBookmarksAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8BEA54A5A36E96AF7B0EF7E /* Pods_MapBookmarksApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapBookmarksApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0F62AD686051E6129CDCC6E /* Pods-MapBookmarksApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksApp/Pods-MapBookmarksApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E727BAEB1D39132B00610EDB /* FoursquareAPIConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareAPIConnector.swift; sourceTree = "<group>"; };
+		E727BAED1D392C7700610EDB /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		E7621FB31D37D033000FF682 /* MapBookmarksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapBookmarksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7621FB61D37D033000FF682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7621FBB1D37D033000FF682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7621FBE1D37D033000FF682 /* MapBookmarksApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapBookmarksApp.xcdatamodel; sourceTree = "<group>"; };
+		E7621FC01D37D033000FF682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7621FC31D37D033000FF682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7621FC51D37D033000FF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7621FCA1D37D033000FF682 /* MapBookmarksAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapBookmarksAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7621FCE1D37D033000FF682 /* MapBookmarksAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBookmarksAppTests.swift; sourceTree = "<group>"; };
+		E7621FD01D37D033000FF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7621FD51D37D033000FF682 /* MapBookmarksAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapBookmarksAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7621FD91D37D033000FF682 /* MapBookmarksAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBookmarksAppUITests.swift; sourceTree = "<group>"; };
+		E7621FDB1D37D033000FF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7621FE71D37E0B1000FF682 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E7621FE91D37E494000FF682 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E7621FFD1D3825DE000FF682 /* MapBookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapBookmark.swift; sourceTree = "<group>"; };
+		E7621FFE1D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapBookmark+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E76220011D38263A000FF682 /* MapBookmark+functionality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapBookmark+functionality.swift"; sourceTree = "<group>"; };
+		E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkDetails.swift; path = View/BookmarkDetails.swift; sourceTree = "<group>"; };
+		E7BBDCCC1D38DCA80033D3AC /* BookmarkTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkTable.swift; path = View/BookmarkTable.swift; sourceTree = "<group>"; };
+		E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkTableViewCell.swift; path = View/BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		F29E3CA5BE955E25F57CFD92 /* Pods-MapBookmarksAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppUITests/Pods-MapBookmarksAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FB74132B37289CB181FDA843 /* Pods-MapBookmarksAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppUITests/Pods-MapBookmarksAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7621FB01D37D033000FF682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7621FEA1D37E494000FF682 /* MapKit.framework in Frameworks */,
+				C14E452B3DB2F8010FB20DEF /* Pods_MapBookmarksApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FC71D37D033000FF682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A424B5582FCC77FB19859D7B /* Pods_MapBookmarksAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FD21D37D033000FF682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A55157F66A6597F21CC5C6 /* Pods_MapBookmarksAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8C0E3F03059D52823C096F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FE91D37E494000FF682 /* MapKit.framework */,
+				A8BEA54A5A36E96AF7B0EF7E /* Pods_MapBookmarksApp.framework */,
+				68A1A4486A2CF4BC7F371D94 /* Pods_MapBookmarksAppTests.framework */,
+				6CCBC1C9C6FEE1FC9C01EF3F /* Pods_MapBookmarksAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E727BAEA1D39132B00610EDB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E727BAEB1D39132B00610EDB /* FoursquareAPIConnector.swift */,
+			);
+			name = Network;
+			path = MapBookmarksApp/Network;
+			sourceTree = "<group>";
+		};
+		E7621FAA1D37D033000FF682 = {
+			isa = PBXGroup;
+			children = (
+				E727BAEA1D39132B00610EDB /* Network */,
+				E7621FF21D38218E000FF682 /* Model */,
+				E7621FB51D37D033000FF682 /* MapBookmarksApp */,
+				E7621FCD1D37D033000FF682 /* MapBookmarksAppTests */,
+				E7621FD81D37D033000FF682 /* MapBookmarksAppUITests */,
+				E7621FB41D37D033000FF682 /* Products */,
+				EBF95C94E6BFD2F08409E704 /* Pods */,
+				D8C0E3F03059D52823C096F6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E7621FB41D37D033000FF682 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FB31D37D033000FF682 /* MapBookmarksApp.app */,
+				E7621FCA1D37D033000FF682 /* MapBookmarksAppTests.xctest */,
+				E7621FD51D37D033000FF682 /* MapBookmarksAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7621FB51D37D033000FF682 /* MapBookmarksApp */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FB61D37D033000FF682 /* AppDelegate.swift */,
+				E7621FE71D37E0B1000FF682 /* MapViewController.swift */,
+				E7BBDCCC1D38DCA80033D3AC /* BookmarkTable.swift */,
+				E7621FBA1D37D033000FF682 /* Main.storyboard */,
+				E7621FC01D37D033000FF682 /* Assets.xcassets */,
+				E7621FC21D37D033000FF682 /* LaunchScreen.storyboard */,
+				E7621FC51D37D033000FF682 /* Info.plist */,
+				E7621FBD1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld */,
+				E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */,
+				E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */,
+			);
+			path = MapBookmarksApp;
+			sourceTree = "<group>";
+		};
+		E7621FCD1D37D033000FF682 /* MapBookmarksAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FCE1D37D033000FF682 /* MapBookmarksAppTests.swift */,
+				E7621FD01D37D033000FF682 /* Info.plist */,
+			);
+			path = MapBookmarksAppTests;
+			sourceTree = "<group>";
+		};
+		E7621FD81D37D033000FF682 /* MapBookmarksAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FD91D37D033000FF682 /* MapBookmarksAppUITests.swift */,
+				E7621FDB1D37D033000FF682 /* Info.plist */,
+			);
+			path = MapBookmarksAppUITests;
+			sourceTree = "<group>";
+		};
+		E7621FF21D38218E000FF682 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FF31D38218E000FF682 /* PersistentStore */,
+				E76220011D38263A000FF682 /* MapBookmark+functionality.swift */,
+				E727BAED1D392C7700610EDB /* Venue.swift */,
+			);
+			name = Model;
+			path = MapBookmarksApp/Model;
+			sourceTree = "<group>";
+		};
+		E7621FF31D38218E000FF682 /* PersistentStore */ = {
+			isa = PBXGroup;
+			children = (
+				E7621FFD1D3825DE000FF682 /* MapBookmark.swift */,
+				E7621FFE1D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift */,
+			);
+			path = PersistentStore;
+			sourceTree = "<group>";
+		};
+		EBF95C94E6BFD2F08409E704 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0F62AD686051E6129CDCC6E /* Pods-MapBookmarksApp.debug.xcconfig */,
+				87DBB36A1DC38D94A9A08D0A /* Pods-MapBookmarksApp.release.xcconfig */,
+				8D7CD029731367A7125C5909 /* Pods-MapBookmarksAppTests.debug.xcconfig */,
+				577F09CDA7F42442F875179A /* Pods-MapBookmarksAppTests.release.xcconfig */,
+				F29E3CA5BE955E25F57CFD92 /* Pods-MapBookmarksAppUITests.debug.xcconfig */,
+				FB74132B37289CB181FDA843 /* Pods-MapBookmarksAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7621FB21D37D033000FF682 /* MapBookmarksApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7621FDE1D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksApp" */;
+			buildPhases = (
+				4E3F3C85143B59577FF4AF3B /* [CP] Check Pods Manifest.lock */,
+				E7621FAF1D37D033000FF682 /* Sources */,
+				E7621FB01D37D033000FF682 /* Frameworks */,
+				E7621FB11D37D033000FF682 /* Resources */,
+				8F41AAFB9C66D2A6F73FF36D /* [CP] Embed Pods Frameworks */,
+				8B0D0C5736FAF0E29E49C734 /* [CP] Copy Pods Resources */,
+				E7621FEB1D381582000FF682 /* Build Version Autoincrement script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapBookmarksApp;
+			productName = MapBookmarksApp;
+			productReference = E7621FB31D37D033000FF682 /* MapBookmarksApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7621FC91D37D033000FF682 /* MapBookmarksAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7621FE11D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksAppTests" */;
+			buildPhases = (
+				5A794D16D60BF49020C5A508 /* [CP] Check Pods Manifest.lock */,
+				E7621FC61D37D033000FF682 /* Sources */,
+				E7621FC71D37D033000FF682 /* Frameworks */,
+				E7621FC81D37D033000FF682 /* Resources */,
+				AF5C3B9606B126FA3AB15B98 /* [CP] Embed Pods Frameworks */,
+				246787A6F55B9E1EA02F7A01 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7621FCC1D37D033000FF682 /* PBXTargetDependency */,
+			);
+			name = MapBookmarksAppTests;
+			productName = MapBookmarksAppTests;
+			productReference = E7621FCA1D37D033000FF682 /* MapBookmarksAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E7621FD41D37D033000FF682 /* MapBookmarksAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7621FE41D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksAppUITests" */;
+			buildPhases = (
+				2301B1C44B57D082990134BF /* [CP] Check Pods Manifest.lock */,
+				E7621FD11D37D033000FF682 /* Sources */,
+				E7621FD21D37D033000FF682 /* Frameworks */,
+				E7621FD31D37D033000FF682 /* Resources */,
+				4DE11789353B920151BC2DB5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7621FD71D37D033000FF682 /* PBXTargetDependency */,
+			);
+			name = MapBookmarksAppUITests;
+			productName = MapBookmarksAppUITests;
+			productReference = E7621FD51D37D033000FF682 /* MapBookmarksAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7621FAB1D37D033000FF682 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Anton Komir";
+				TargetAttributes = {
+					E7621FB21D37D033000FF682 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					E7621FC91D37D033000FF682 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E7621FB21D37D033000FF682;
+					};
+					E7621FD41D37D033000FF682 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E7621FB21D37D033000FF682;
+					};
+				};
+			};
+			buildConfigurationList = E7621FAE1D37D033000FF682 /* Build configuration list for PBXProject "MapBookmarksApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E7621FAA1D37D033000FF682;
+			productRefGroup = E7621FB41D37D033000FF682 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7621FB21D37D033000FF682 /* MapBookmarksApp */,
+				E7621FC91D37D033000FF682 /* MapBookmarksAppTests */,
+				E7621FD41D37D033000FF682 /* MapBookmarksAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7621FB11D37D033000FF682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7621FC41D37D033000FF682 /* LaunchScreen.storyboard in Resources */,
+				E7621FC11D37D033000FF682 /* Assets.xcassets in Resources */,
+				E7621FBC1D37D033000FF682 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FC81D37D033000FF682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FD31D37D033000FF682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2301B1C44B57D082990134BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		246787A6F55B9E1EA02F7A01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapBookmarksAppTests/Pods-MapBookmarksAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DE11789353B920151BC2DB5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapBookmarksAppUITests/Pods-MapBookmarksAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E3F3C85143B59577FF4AF3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A794D16D60BF49020C5A508 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B0D0C5736FAF0E29E49C734 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapBookmarksApp/Pods-MapBookmarksApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F41AAFB9C66D2A6F73FF36D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapBookmarksApp/Pods-MapBookmarksApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF5C3B9606B126FA3AB15B98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapBookmarksAppTests/Pods-MapBookmarksAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7621FEB1D381582000FF682 /* Build Version Autoincrement script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Version Autoincrement script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7621FAF1D37D033000FF682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7BBDCCB1D3875B50033D3AC /* BookmarkDetails.swift in Sources */,
+				E76220021D38263A000FF682 /* MapBookmark+functionality.swift in Sources */,
+				E7BBDCCF1D3906C40033D3AC /* BookmarkTableViewCell.swift in Sources */,
+				E727BAEC1D39132B00610EDB /* FoursquareAPIConnector.swift in Sources */,
+				E727BAEE1D392C7700610EDB /* Venue.swift in Sources */,
+				E76220001D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift in Sources */,
+				E7621FFF1D3825DE000FF682 /* MapBookmark.swift in Sources */,
+				E7BBDCCD1D38DCA80033D3AC /* BookmarkTable.swift in Sources */,
+				E7621FB71D37D033000FF682 /* AppDelegate.swift in Sources */,
+				E7621FBF1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld in Sources */,
+				E7621FE81D37E0B1000FF682 /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FC61D37D033000FF682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7621FCF1D37D033000FF682 /* MapBookmarksAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7621FD11D37D033000FF682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7621FDA1D37D033000FF682 /* MapBookmarksAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7621FCC1D37D033000FF682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7621FB21D37D033000FF682 /* MapBookmarksApp */;
+			targetProxy = E7621FCB1D37D033000FF682 /* PBXContainerItemProxy */;
+		};
+		E7621FD71D37D033000FF682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7621FB21D37D033000FF682 /* MapBookmarksApp */;
+			targetProxy = E7621FD61D37D033000FF682 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7621FBA1D37D033000FF682 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7621FBB1D37D033000FF682 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E7621FC21D37D033000FF682 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7621FC31D37D033000FF682 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7621FDC1D37D033000FF682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E7621FDD1D37D033000FF682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7621FDF1D37D033000FF682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0F62AD686051E6129CDCC6E /* Pods-MapBookmarksApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MapBookmarksApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E7621FE01D37D033000FF682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87DBB36A1DC38D94A9A08D0A /* Pods-MapBookmarksApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MapBookmarksApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E7621FE21D37D033000FF682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7CD029731367A7125C5909 /* Pods-MapBookmarksAppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MapBookmarksAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapBookmarksApp.app/MapBookmarksApp";
+			};
+			name = Debug;
+		};
+		E7621FE31D37D033000FF682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577F09CDA7F42442F875179A /* Pods-MapBookmarksAppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MapBookmarksAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapBookmarksApp.app/MapBookmarksApp";
+			};
+			name = Release;
+		};
+		E7621FE51D37D033000FF682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F29E3CA5BE955E25F57CFD92 /* Pods-MapBookmarksAppUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = MapBookmarksAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MapBookmarksApp;
+			};
+			name = Debug;
+		};
+		E7621FE61D37D033000FF682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB74132B37289CB181FDA843 /* Pods-MapBookmarksAppUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = MapBookmarksAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = exo.anton.MapBookmarksAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MapBookmarksApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7621FAE1D37D033000FF682 /* Build configuration list for PBXProject "MapBookmarksApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7621FDC1D37D033000FF682 /* Debug */,
+				E7621FDD1D37D033000FF682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7621FDE1D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7621FDF1D37D033000FF682 /* Debug */,
+				E7621FE01D37D033000FF682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7621FE11D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7621FE21D37D033000FF682 /* Debug */,
+				E7621FE31D37D033000FF682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7621FE41D37D033000FF682 /* Build configuration list for PBXNativeTarget "MapBookmarksAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7621FE51D37D033000FF682 /* Debug */,
+				E7621FE61D37D033000FF682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E7621FBD1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E7621FBE1D37D033000FF682 /* MapBookmarksApp.xcdatamodel */,
+			);
+			currentVersion = E7621FBE1D37D033000FF682 /* MapBookmarksApp.xcdatamodel */;
+			path = MapBookmarksApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E7621FAB1D37D033000FF682 /* Project object */;
+}

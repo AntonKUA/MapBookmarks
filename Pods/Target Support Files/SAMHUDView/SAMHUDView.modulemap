@@ -1,0 +1,6 @@
+framework module SAMHUDView {
+  umbrella header "SAMHUDView-umbrella.h"
+
+  export *
+  module * { export * }
+}

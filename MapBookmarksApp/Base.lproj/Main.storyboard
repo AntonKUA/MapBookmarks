@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lf8-tA-MPw">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="j5H-K6-QcF">
+            <objects>
+                <viewController id="akW-Sx-ZnH" customClass="MapViewController" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FIB-kJ-Ll0"/>
+                        <viewControllerLayoutGuide type="bottom" id="wx4-qd-Qqv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cAT-wS-CFN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="atE-2p-IRr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="atE-2p-IRr" firstAttribute="leading" secondItem="cAT-wS-CFN" secondAttribute="leadingMargin" constant="-20" id="3mY-Fk-Jqp"/>
+                            <constraint firstItem="atE-2p-IRr" firstAttribute="top" secondItem="cAT-wS-CFN" secondAttribute="topMargin" id="H9u-fF-6Jw"/>
+                            <constraint firstItem="wx4-qd-Qqv" firstAttribute="top" secondItem="atE-2p-IRr" secondAttribute="bottom" id="Ue5-me-pYn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="atE-2p-IRr" secondAttribute="trailing" constant="-20" id="XsZ-rs-zlf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ucu-nR-ENx"/>
+                    <connections>
+                        <outlet property="MapView" destination="atE-2p-IRr" id="xJ3-ui-4mS"/>
+                        <segue destination="sbx-bh-Q5q" kind="show" identifier="SegueToBookmarksTable" id="mBS-li-KOE"/>
+                        <segue destination="Iua-3i-x4G" kind="show" identifier="DetailSegue" id="1yX-YL-wUj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Col-pf-RNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1190" y="977"/>
+        </scene>
+        <!--Bookmark Table-->
+        <scene sceneID="dpI-ud-eAZ">
+            <objects>
+                <tableViewController id="sbx-bh-Q5q" customClass="BookmarkTable" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Bookmarks" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FSZ-xX-4of">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell2" id="wK3-wY-eve" customClass="BookmarkTableViewCell" customModule="MapBookmarksApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wK3-wY-eve" id="Zud-sR-u4q">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lk-5t-Wji">
+                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="1Lk-5t-Wji" id="aSk-OS-buE"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="4eY-qe-WVr" customClass="BookmarkTableViewCell" customModule="MapBookmarksApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eY-qe-WVr" id="pCc-fT-VK5">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-a4-p1p">
+                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sbx-bh-Q5q" id="6sM-k2-XKe"/>
+                            <outlet property="delegate" destination="sbx-bh-Q5q" id="GJr-oV-zRW"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="FSZ-xX-4of" id="8H2-Sx-BHk"/>
+                        <segue destination="Iua-3i-x4G" kind="show" id="2gi-Tv-I67"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bV9-S2-eUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="977"/>
+        </scene>
+        <!--Bookmark Details-->
+        <scene sceneID="uOj-Vl-T5O">
+            <objects>
+                <viewController id="Iua-3i-x4G" customClass="BookmarkDetails" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9c1-ST-yNc"/>
+                        <viewControllerLayoutGuide type="bottom" id="lWK-Yy-7Tg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n6A-vu-dFR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-xH-m5R">
+                                <rect key="frame" x="0.0" y="262" width="600" height="338"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceIdentifier" id="q93-ID-wr6">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q93-ID-wr6" id="ZKi-mh-oLe">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW7-sr-EQy">
+                                <rect key="frame" x="20" y="102" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kF-ls-6af">
+                                <rect key="frame" x="97" y="98" width="483" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebm-Sd-NGv">
+                                <rect key="frame" x="20" y="224" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Load nearby places"/>
+                                <connections>
+                                    <action selector="loadNearbyPlaces:" destination="Iua-3i-x4G" eventType="touchUpInside" id="Qf9-uk-8Hf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-0d-CAZ">
+                                <rect key="frame" x="429" y="165" width="151" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Center map to"/>
+                                <connections>
+                                    <action selector="shouldBeCentered:" destination="Iua-3i-x4G" eventType="touchUpInside" id="WO9-No-oCL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-TT-0Hj">
+                                <rect key="frame" x="429" y="224" width="151" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Go to"/>
+                                <connections>
+                                    <action selector="shouldGoToAction:" destination="Iua-3i-x4G" eventType="touchUpInside" id="iU4-tB-oa4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lpc-TT-0Hj" firstAttribute="trailing" secondItem="n6A-vu-dFR" secondAttribute="trailingMargin" id="rx8-gd-Gb7"/>
+                            <constraint firstItem="onf-0d-CAZ" firstAttribute="trailing" secondItem="n6A-vu-dFR" secondAttribute="trailingMargin" id="z0W-1v-4Ut"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nearByPlacesTalbeView" destination="Qkt-xH-m5R" id="CuN-oZ-ZVb"/>
+                        <outlet property="searchNearByPlaces" destination="ebm-Sd-NGv" id="fdj-Xd-zmZ"/>
+                        <outlet property="titleField" destination="7kF-ls-6af" id="9bw-oV-wVG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fn-CE-fAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="1718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Uz-La-wzV">
+            <objects>
+                <navigationController id="Lf8-tA-MPw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdh-U4-Ldq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="akW-Sx-ZnH" kind="relationship" relationship="rootViewController" id="hVR-1s-CsX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5M-tm-Yjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="977"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2gi-Tv-I67"/>
+    </inferredMetricsTieBreakers>
+</document>
