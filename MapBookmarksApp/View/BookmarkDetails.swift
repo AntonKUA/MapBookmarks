@@ -59,8 +59,15 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         self.ForsqearePrepare()
         
+        self.navigationBarNotTransparent()
+        
         entity = NSEntityDescription.entityForName(MapBookmark.entityClass, inManagedObjectContext:context)
-
+    }
+    
+    func navigationBarNotTransparent () {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func ForsqearePrepare () {

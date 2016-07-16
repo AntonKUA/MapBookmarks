@@ -46,16 +46,13 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
         self.loadData()
         
         self.enableCurrentLocation()
-        //self.transparentNavigationBar()
     }
     
     func strandartNavigationBar () {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: routeLabelText, style: .Plain, target: self, action: #selector(startRoadRegime))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: bookmarksLabelText, style: .Plain, target: self, action: #selector(goToBookmarksTable))
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true
+        transparentNavigationBar()
     }
     
     func startRoadRegime () {
@@ -90,13 +87,9 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     }
     
     func transparentNavigationBar () {
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        // Sets shadow (line below the bar) to a blank image
-        UINavigationBar.appearance().shadowImage = UIImage()
-        // Sets the translucent background color
-        UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        // Set translucent. (Default value is already true, so this can be removed if desired.)
-        UINavigationBar.appearance().translucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -317,6 +310,11 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
                 destination.bookmark = self.selectedBookmark!
             }
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        transparentNavigationBar()
     }
     
     override func viewDidAppear(animated: Bool) {

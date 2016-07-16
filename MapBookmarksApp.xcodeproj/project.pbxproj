@@ -26,7 +26,6 @@
 		E76220021D38263A000FF682 /* MapBookmark+functionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76220011D38263A000FF682 /* MapBookmark+functionality.swift */; };
 		E7BBDCCB1D3875B50033D3AC /* BookmarkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */; };
 		E7BBDCCD1D38DCA80033D3AC /* BookmarkTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCC1D38DCA80033D3AC /* BookmarkTable.swift */; };
-		E7BBDCCF1D3906C40033D3AC /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,6 @@
 		E76220011D38263A000FF682 /* MapBookmark+functionality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapBookmark+functionality.swift"; sourceTree = "<group>"; };
 		E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkDetails.swift; path = View/BookmarkDetails.swift; sourceTree = "<group>"; };
 		E7BBDCCC1D38DCA80033D3AC /* BookmarkTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkTable.swift; path = View/BookmarkTable.swift; sourceTree = "<group>"; };
-		E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkTableViewCell.swift; path = View/BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		F29E3CA5BE955E25F57CFD92 /* Pods-MapBookmarksAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppUITests/Pods-MapBookmarksAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB74132B37289CB181FDA843 /* Pods-MapBookmarksAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBookmarksAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapBookmarksAppUITests/Pods-MapBookmarksAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +164,6 @@
 				E7621FC51D37D033000FF682 /* Info.plist */,
 				E7621FBD1D37D033000FF682 /* MapBookmarksApp.xcdatamodeld */,
 				E7BBDCCA1D3875B50033D3AC /* BookmarkDetails.swift */,
-				E7BBDCCE1D3906C40033D3AC /* BookmarkTableViewCell.swift */,
 			);
 			path = MapBookmarksApp;
 			sourceTree = "<group>";
@@ -502,7 +499,6 @@
 			files = (
 				E7BBDCCB1D3875B50033D3AC /* BookmarkDetails.swift in Sources */,
 				E76220021D38263A000FF682 /* MapBookmark+functionality.swift in Sources */,
-				E7BBDCCF1D3906C40033D3AC /* BookmarkTableViewCell.swift in Sources */,
 				E727BAEC1D39132B00610EDB /* FoursquareAPIConnector.swift in Sources */,
 				E727BAEE1D392C7700610EDB /* Venue.swift in Sources */,
 				E76220001D3825DE000FF682 /* MapBookmark+CoreDataProperties.swift in Sources */,

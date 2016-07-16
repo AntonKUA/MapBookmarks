@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 import MapKit
 
-class BookmarkTable: UITableViewController, NSFetchedResultsControllerDelegate {
-    let textCellIdentifier = "TextCell"
+class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+    var placeCellIdentifier = "Bookmark"
     var mapBookmarks = [MapBookmark]()
     lazy var context: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -20,16 +20,24 @@ class BookmarkTable: UITableViewController, NSFetchedResultsControllerDelegate {
     }()
     var fetchedResultsController: NSFetchedResultsController!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableHeaderView = nil
         
-        let nib = UINib(nibName: textCellIdentifier, bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier:textCellIdentifier)
+        navigationBarNotTransparent ()
         
         self.loadData()
+    }
+    
+    func navigationBarNotTransparent () {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func loadData () {
@@ -57,28 +65,24 @@ class BookmarkTable: UITableViewController, NSFetchedResultsControllerDelegate {
         }
 
     // MARK:  UITextFieldDelegate Methods
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mapBookmarks.count
     }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! BookmarkTableViewCell
-        
-        cell.label2.text = mapBookmarks[indexPath.row].title
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(placeCellIdentifier, forIndexPath: indexPath)
+        cell.textLabel?.text = mapBookmarks[indexPath.row].title
         
         return cell
     }
     
     // MARK:  UITableViewDelegate Methods
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let row = indexPath.row
-        print(mapBookmarks[row].title)
     }
 }

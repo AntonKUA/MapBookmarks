@@ -34,7 +34,7 @@
                     <connections>
                         <outlet property="MapView" destination="atE-2p-IRr" id="xJ3-ui-4mS"/>
                         <segue destination="Iua-3i-x4G" kind="show" identifier="DetailSegue" id="1yX-YL-wUj"/>
-                        <segue destination="pR8-Xr-1Dm" kind="show" identifier="SegueToBookmarksTable" id="keo-0g-zTp"/>
+                        <segue destination="A6E-hH-248" kind="show" identifier="SegueToBookmarksTable" id="MgM-sf-UFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-pf-RNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,35 +42,41 @@
             <point key="canvasLocation" x="1190" y="977"/>
         </scene>
         <!--Bookmark Table-->
-        <scene sceneID="qkf-fq-iDS">
+        <scene sceneID="3aG-b1-qrs">
             <objects>
-                <tableViewController id="pR8-Xr-1Dm" customClass="BookmarkTable" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eae-lp-vkY">
+                <viewController id="A6E-hH-248" customClass="BookmarkTable" customModule="MapBookmarksApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UpQ-dP-4Yk"/>
+                        <viewControllerLayoutGuide type="bottom" id="ApL-WI-ZoD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pOJ-ZP-Qq1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-gM-n7a">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Bookmark" id="fyQ-L9-EZS">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyQ-L9-EZS" id="VQo-bE-LkI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" id="VPf-HS-1vO">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPf-HS-1vO" id="ybR-6G-hnd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="pR8-Xr-1Dm" id="ze9-wv-86f"/>
-                            <outlet property="delegate" destination="pR8-Xr-1Dm" id="Upu-Qa-h0g"/>
-                        </connections>
-                    </tableView>
+                    </view>
                     <connections>
-                        <segue destination="Iua-3i-x4G" kind="show" id="KoK-Lr-M20"/>
+                        <outlet property="tableView" destination="qhp-gM-n7a" id="UIC-yv-mc7"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="REW-UZ-6SU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TS7-Qe-Lca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="975"/>
+            <point key="canvasLocation" x="1881" y="977"/>
         </scene>
         <!--Bookmark Details-->
         <scene sceneID="uOj-Vl-T5O">
@@ -167,7 +173,4 @@
             <point key="canvasLocation" x="168" y="977"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="KoK-Lr-M20"/>
-    </inferredMetricsTieBreakers>
 </document>
