@@ -38,6 +38,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     var savedBookmark:NSManagedObject? = nil
     
     var deleteAll = false
+    var didChangedTilte = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,13 +146,13 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func setState () {
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 1]
+        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
         var mapViewController: MapViewController
         if parentViewController is MapViewController {
             mapViewController = parentViewController as! MapViewController
         }
         else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as! MapViewController
+            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
         }
         
         mapViewController.shouldReloadData = self.shouldReloadData
@@ -173,22 +174,19 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func popToMap () {
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 1]
+        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
         var mapViewController: MapViewController
         if navigationController?.parentViewController is MapViewController {
             mapViewController = parentViewController as! MapViewController
         }
         else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as! MapViewController
+            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
         }
         
         self.navigationController?.popToViewController(mapViewController, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
-//        if (self.deletedBookmark == false) {
-//            saveBookmark()
-//        }
         self.shouldReloadData = true
         self.setState()
     }
@@ -217,7 +215,10 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         } else {
             self.shouldReloadData = true
             self.setState()
-            saveBookmark()
+            if (self.deletedBookmark == false && self.didChangedTilte) {
+                saveBookmark()
+            }
+
         }
     }
     
@@ -243,13 +244,13 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             print("Could not save \(error), \(error.userInfo)")
         }
         
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 1]
+        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
         var mapViewController: MapViewController
         if navigationController?.parentViewController is MapViewController {
             mapViewController = parentViewController as! MapViewController
         }
         else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as! MapViewController
+            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
         }
         mapViewController.selectedBookmark = mapBookmark as! MapBookmark;
     }
@@ -333,5 +334,8 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         self.titleField.text = title
         
         location = CLLocation.init(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
+    }
+    @IBAction func changedTitle(sender: AnyObject) {
+        self.didChangedTilte = true
     }
 }

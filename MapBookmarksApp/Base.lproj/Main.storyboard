@@ -66,12 +66,17 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A6E-hH-248" id="p7o-Cl-fOD"/>
+                                    <outlet property="delegate" destination="A6E-hH-248" id="n6l-6o-cTq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="qhp-gM-n7a" id="UIC-yv-mc7"/>
+                        <segue destination="Iua-3i-x4G" kind="show" identifier="DetailFromTable" id="Qsb-6F-HEg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TS7-Qe-Lca" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-xH-m5R">
-                                <rect key="frame" x="0.0" y="262" width="600" height="338"/>
+                                <rect key="frame" x="0.0" y="182" width="600" height="418"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceIdentifier" id="q93-ID-wr6">
@@ -105,26 +110,21 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW7-sr-EQy">
-                                <rect key="frame" x="20" y="102" width="55" height="21"/>
+                                <rect key="frame" x="20" y="72" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kF-ls-6af">
-                                <rect key="frame" x="97" y="98" width="483" height="30"/>
+                                <rect key="frame" x="83" y="68" width="502" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebm-Sd-NGv">
-                                <rect key="frame" x="20" y="224" width="205" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Load nearby places"/>
                                 <connections>
-                                    <action selector="loadNearbyPlaces:" destination="Iua-3i-x4G" eventType="touchUpInside" id="Qf9-uk-8Hf"/>
+                                    <action selector="changedTitle:" destination="Iua-3i-x4G" eventType="valueChanged" id="3XX-1h-QsE"/>
                                 </connections>
-                            </button>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-0d-CAZ">
-                                <rect key="frame" x="429" y="165" width="151" height="30"/>
+                                <rect key="frame" x="429" y="106" width="151" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Center map to"/>
                                 <connections>
@@ -132,11 +132,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-TT-0Hj">
-                                <rect key="frame" x="429" y="224" width="151" height="30"/>
+                                <rect key="frame" x="429" y="144" width="151" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Go to"/>
                                 <connections>
                                     <action selector="shouldGoToAction:" destination="Iua-3i-x4G" eventType="touchUpInside" id="iU4-tB-oa4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebm-Sd-NGv">
+                                <rect key="frame" x="20" y="144" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Load nearby places"/>
+                                <connections>
+                                    <action selector="loadNearbyPlaces:" destination="Iua-3i-x4G" eventType="touchUpInside" id="Qf9-uk-8Hf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -173,4 +181,7 @@
             <point key="canvasLocation" x="168" y="977"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qsb-6F-HEg"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,8 @@ import CoreData
 import MapKit
 
 class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
-    var placeCellIdentifier = "Bookmark"
+    let placeCellIdentifier = "Bookmark"
+    let detailSegue = "DetailFromTable"
     var mapBookmarks = [MapBookmark]()
     lazy var context: NSManagedObjectContext = {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -19,6 +20,8 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         return managedContext
     }()
     var fetchedResultsController: NSFetchedResultsController!
+    var selectedRow:Int? = nil
+    var editingMode = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,8 +33,23 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.tableHeaderView = nil
         
         navigationBarNotTransparent ()
+        standartNavigationBarItems ()
         
         self.loadData()
+    }
+    
+    func standartNavigationBarItems () {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: #selector(self.editTableMode))
+        self.editingMode = false
+        self.tableView.editing = false
+        self.tableView.reloadData()
+    }
+    
+    func editTableMode () {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(self.standartNavigationBarItems))
+        self.editingMode = true
+        self.tableView.editing = true
+        tableView.reloadData()
     }
     
     func navigationBarNotTransparent () {
@@ -83,6 +101,54 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK:  UITableViewDelegate Methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        self.selectedRow = indexPath.row
+        performSegueWithIdentifier(detailSegue, sender: view)
+    }
+    
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        switch editingStyle {
+//        case .Delete:
+//            // remove the deleted item from the model
+//            context.deleteObject(mapBookmarks[indexPath.row] )
+//            mapBookmarks.removeAtIndex(indexPath.row)
+//            do {
+//                try context.save()
+//            } catch _ {
+//            }
+//            
+//            // remove the deleted item from the `UITableView`
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        default:
+//            return
+//        }
+//    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print(indexPath.row)
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return  true // self.editingMode
+    }
+    
+//    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+//        if (self.tableView.editing) {
+//            return UITableViewCellEditingStyle.Delete
+//        }
+//        return UITableViewCellEditingStyle.None
+//    }
+
+    
+    // MARK:  Segue preparation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? BookmarkDetails {
+            if (self.selectedRow != nil) {
+                destination.bookmark = mapBookmarks[self.selectedRow!]
+            }
+        }
     }
 }

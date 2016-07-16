@@ -289,9 +289,9 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
                 self.selectedBookmark = bookmark
             }
         }
-        
         performSegueWithIdentifier(detailSegue, sender: view)
     }
+    
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         for bookmark in mapBookmarks {
             if ((bookmark.latitude!.isEqualToNumber(view.annotation!.coordinate.latitude) && bookmark.longitude!.isEqualToNumber(view.annotation!.coordinate.longitude))) {
