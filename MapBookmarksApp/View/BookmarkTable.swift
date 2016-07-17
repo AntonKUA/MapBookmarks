@@ -130,24 +130,10 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            print(indexPath.row)
-//        }
-//    }
-    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return  self.editingMode
     }
-    
-//    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-//        if (self.tableView.editing) {
-//            return UITableViewCellEditingStyle.Delete
-//        }
-//        return UITableViewCellEditingStyle.None
-//    }
 
-    
     // MARK:  Segue preparation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destination = segue.destinationViewController as? BookmarkDetails {

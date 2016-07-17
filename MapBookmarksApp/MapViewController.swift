@@ -38,7 +38,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigation buttons
         self.strandartNavigationBar()
         
         self.addLongPress()
@@ -66,8 +65,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     }
     
     func addLongPress () {
-        //adding long press ges
-        
         let uilgr = UILongPressGestureRecognizer(target: self, action: #selector(MapViewController.addBookmark(_:)))
         uilgr.minimumPressDuration = 2.0
         
@@ -112,30 +109,12 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
             print("Unable to perform fetch: \(error.localizedDescription)")
         }
         
-        // Get only needed Pins
-        
         mapBookmarks = [MapBookmark]()
         
-        // Getting area of interest
-//        let region:MKCoordinateRegion = MapView.region
-//        let maxLatitude = Double(region.center.latitude + region.span.latitudeDelta/2)
-//        let maxLongitude = Double(region.center.longitude + region.span.longitudeDelta/2)
-//        
-//        let minLatitude = Double(region.center.latitude - region.span.latitudeDelta/2)
-//        let minLongitude = Double(region.center.longitude - region.span.longitudeDelta/2)
-        
         let sectionData = fetchedResultsController.fetchedObjects
-        
-        // Saving only data in visible area
-        
+
         for mapBookmark in sectionData! {
-//            let pinLongitude = Double((mapBookmark as! MapBookmark).longitude!)
-//            let pinLatitude = Double((mapBookmark as! MapBookmark).latitude!)
-//            
-//            if (minLatitude < pinLatitude) && (maxLatitude > pinLatitude) &&
-//            (minLongitude < pinLongitude) && (maxLongitude > pinLongitude) {
-                mapBookmarks.append(mapBookmark as! MapBookmark)
-//            }
+            mapBookmarks.append(mapBookmark as! MapBookmark)
         }
         self.drowPins()
     }
@@ -173,7 +152,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
         
         do {
             try context.save()
-            //mapBookmarks.append(mapBookmark)
             self.loadData()
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
@@ -201,15 +179,7 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
         }
     }
     
-    // way
-    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        CLGeocoder().reverseGeocodeLocation(locations.last!,
-//                                            completionHandler: {(placemarks:[CLPlacemark]?, error:NSError?) -> Void in
-//                                                if let placemarks = placemarks {
-//                                                    let placemark = placemarks[0]
-//                                                }
-//        })
         let locationArray = locations as NSArray
         currentLocation = locationArray.lastObject as! CLLocation
     }
@@ -283,7 +253,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        // find selected bookmark
         for bookmark in mapBookmarks {
             if ((bookmark.latitude!.isEqualToNumber(view.annotation!.coordinate.latitude) && bookmark.longitude!.isEqualToNumber(view.annotation!.coordinate.longitude))) {
                 self.selectedBookmark = bookmark
@@ -309,7 +278,6 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
             } else {
                 destination.bookmark = self.selectedBookmark!
             }
-            //navigationController?.addChildViewController(destination)
         }
     }
     
@@ -319,12 +287,7 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
     }
     
     override func viewDidAppear(animated: Bool) {
-        if(shouldCentered) {
-//            let center = CLLocationCoordinate2D(latitude: CLLocationDegrees((self.selectedBookmark?.latitude)!), longitude: CLLocationDegrees((self.selectedBookmark?.longitude)!))
-//            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//            
-//            self.MapView.setRegion(region, animated: true)
-//
+        if (shouldCentered) {
             MapView.centerCoordinate.latitude = CLLocationDegrees((self.selectedBookmark?.latitude)!)
             MapView.centerCoordinate.longitude = CLLocationDegrees((self.selectedBookmark?.longitude)!)
         }

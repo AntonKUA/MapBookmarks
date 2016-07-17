@@ -36,8 +36,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     var entity: NSEntityDescription? = nil
     var deletedBookmark = false
     var savedBookmark:NSManagedObject? = nil
-    
-    var deleteAll = false
+
     var didChangedTilte = false
     
     var mapViewController: MapViewController? = nil
@@ -68,7 +67,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         entity = NSEntityDescription.entityForName(MapBookmark.entityClass, inManagedObjectContext:context)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BookmarkDetails.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -247,36 +246,6 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func deleteBookmarkFromCoreData () {
-        if (deleteAll) {
-//            let fetchPredicateFirst = NSPredicate(format: "%@ == %f", MapBookmark.latitudeTitle,
-//                                                  self.bookmark!.latitude!)
-//            let fetchPredicateSecond = NSPredicate(format: "%@ == %f", MapBookmark.longitudeTitle,
-//                                                   self.bookmark!.longitude!)
-//            
-            let fetchBookmark = NSFetchRequest(entityName: MapBookmark.entityClass)
-//            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [fetchPredicateFirst, fetchPredicateSecond])
-            //fetchBookmark.predicate = fetchPredicateFirst
-            fetchBookmark.returnsObjectsAsFaults   = false
-            
-            var fetchedBookmarks: [NSManagedObject]? = nil
-            
-            do {
-                fetchedBookmarks = try context.executeFetchRequest(fetchBookmark) as? [NSManagedObject]
-            } catch let error as NSError  {
-                print("Could not save \(error), \(error.userInfo)")
-            }
-            
-            for fetchedBookmark in fetchedBookmarks! {
-                context.deleteObject(fetchedBookmark)
-                
-                do {
-                    try context.save()
-                } catch let error as NSError  {
-                    print("Could not save \(error), \(error.userInfo)")
-                }
-            }
-
-        }
         if (bookmark != nil) {
             context.deleteObject((self.bookmark!) as NSManagedObject)
             do {
