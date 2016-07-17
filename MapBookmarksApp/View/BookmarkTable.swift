@@ -58,6 +58,11 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.translucent = false
     }
     
+    override func viewWillAppear(animated: Bool) {
+        loadData ()
+        tableView.reloadData()
+    }
+    
     func loadData () {
         let fetchRequest = NSFetchRequest(entityName: MapBookmark.entityClass)
         let fetchSort = NSSortDescriptor(key: MapBookmark.titleLabel, ascending: true)
@@ -79,8 +84,8 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         
         for mapBookmark in sectionData! {
             mapBookmarks.append(mapBookmark as! MapBookmark)
-           }
         }
+    }
 
     // MARK:  UITextFieldDelegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -107,32 +112,32 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegueWithIdentifier(detailSegue, sender: view)
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        switch editingStyle {
-//        case .Delete:
-//            // remove the deleted item from the model
-//            context.deleteObject(mapBookmarks[indexPath.row] )
-//            mapBookmarks.removeAtIndex(indexPath.row)
-//            do {
-//                try context.save()
-//            } catch _ {
-//            }
-//            
-//            // remove the deleted item from the `UITableView`
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        default:
-//            return
-//        }
-//    }
-    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            print(indexPath.row)
+        switch editingStyle {
+        case .Delete:
+            // remove the deleted item from the model
+            context.deleteObject(mapBookmarks[indexPath.row] )
+            mapBookmarks.removeAtIndex(indexPath.row)
+            do {
+                try context.save()
+            } catch _ {
+            }
+            
+            // remove the deleted item from the `UITableView`
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        default:
+            return
         }
     }
     
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            print(indexPath.row)
+//        }
+//    }
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return  true // self.editingMode
+        return  self.editingMode
     }
     
 //    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {

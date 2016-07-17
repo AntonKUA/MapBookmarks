@@ -33,8 +33,8 @@
                     <navigationItem key="navigationItem" id="Ucu-nR-ENx"/>
                     <connections>
                         <outlet property="MapView" destination="atE-2p-IRr" id="xJ3-ui-4mS"/>
-                        <segue destination="Iua-3i-x4G" kind="show" identifier="DetailSegue" id="1yX-YL-wUj"/>
                         <segue destination="A6E-hH-248" kind="show" identifier="SegueToBookmarksTable" id="MgM-sf-UFV"/>
+                        <segue destination="Iua-3i-x4G" kind="show" identifier="DetailSegue" id="GPf-oW-Bua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-pf-RNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,7 +53,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-gM-n7a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-gM-n7a">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -73,9 +73,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="qhp-gM-n7a" secondAttribute="trailing" constant="-20" id="PUT-lp-5Mk"/>
+                            <constraint firstItem="qhp-gM-n7a" firstAttribute="leading" secondItem="pOJ-ZP-Qq1" secondAttribute="leadingMargin" constant="-20" id="V1U-AR-M9k"/>
+                            <constraint firstItem="qhp-gM-n7a" firstAttribute="top" secondItem="pOJ-ZP-Qq1" secondAttribute="topMargin" id="rIh-G7-26x"/>
+                            <constraint firstItem="ApL-WI-ZoD" firstAttribute="top" secondItem="qhp-gM-n7a" secondAttribute="bottom" id="s3D-HZ-jeM"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="qhp-gM-n7a" id="UIC-yv-mc7"/>
+                        <outlet property="tableView" destination="qhp-gM-n7a" id="1hC-4D-c5I"/>
                         <segue destination="Iua-3i-x4G" kind="show" identifier="DetailFromTable" id="Qsb-6F-HEg"/>
                     </connections>
                 </viewController>
@@ -112,7 +118,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW7-sr-EQy">
                                 <rect key="frame" x="20" y="72" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kF-ls-6af">
@@ -120,7 +126,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changedTitle:" destination="Iua-3i-x4G" eventType="valueChanged" id="3XX-1h-QsE"/>
+                                    <action selector="endEditing:" destination="Iua-3i-x4G" eventType="editingDidEnd" id="dWM-DQ-H4t"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-0d-CAZ">
@@ -162,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fn-CE-fAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="1718"/>
+            <point key="canvasLocation" x="1881" y="1657"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Uz-La-wzV">
@@ -182,6 +188,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qsb-6F-HEg"/>
+        <segue reference="GPf-oW-Bua"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -309,6 +309,7 @@ class MapViewController: UIViewController, NSFetchedResultsControllerDelegate, C
             } else {
                 destination.bookmark = self.selectedBookmark!
             }
+            //navigationController?.addChildViewController(destination)
         }
     }
     

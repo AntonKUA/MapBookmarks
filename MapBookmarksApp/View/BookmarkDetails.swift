@@ -40,6 +40,8 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     var deleteAll = false
     var didChangedTilte = false
     
+    var mapViewController: MapViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,13 +64,28 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         self.navigationBarNotTransparent()
         
+        self.findMapViewController()
+        
         entity = NSEntityDescription.entityForName(MapBookmark.entityClass, inManagedObjectContext:context)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
     func navigationBarNotTransparent () {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = false
+    }
+    
+    func findMapViewController () {
+        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
+        if parentViewController is MapViewController {
+            mapViewController = parentViewController as? MapViewController
+        }
+        else {
+            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as? MapViewController
+        }
     }
     
     func ForsqearePrepare () {
@@ -146,18 +163,9 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func setState () {
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
-        var mapViewController: MapViewController
-        if parentViewController is MapViewController {
-            mapViewController = parentViewController as! MapViewController
-        }
-        else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
-        }
-        
-        mapViewController.shouldReloadData = self.shouldReloadData
-        mapViewController.shouldCentered = self.shouldCentered
-        mapViewController.shouldGoTo = self.shouldGoTo
+        mapViewController!.shouldReloadData = self.shouldReloadData
+        mapViewController!.shouldCentered = self.shouldCentered
+        mapViewController!.shouldGoTo = self.shouldGoTo
     }
     
     @IBAction func shouldBeCentered(sender: AnyObject) {
@@ -174,16 +182,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func popToMap () {
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
-        var mapViewController: MapViewController
-        if navigationController?.parentViewController is MapViewController {
-            mapViewController = parentViewController as! MapViewController
-        }
-        else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
-        }
-        
-        self.navigationController?.popToViewController(mapViewController, animated: true)
+        self.navigationController?.popToViewController(mapViewController!, animated: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -244,15 +243,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             print("Could not save \(error), \(error.userInfo)")
         }
         
-        let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
-        var mapViewController: MapViewController
-        if navigationController?.parentViewController is MapViewController {
-            mapViewController = parentViewController as! MapViewController
-        }
-        else {
-            mapViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3] as! MapViewController
-        }
-        mapViewController.selectedBookmark = mapBookmark as! MapBookmark;
+        mapViewController!.selectedBookmark = mapBookmark as! MapBookmark;
     }
     
     func deleteBookmarkFromCoreData () {
@@ -335,7 +326,13 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         location = CLLocation.init(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
     }
-    @IBAction func changedTitle(sender: AnyObject) {
+    
+    @IBAction func endEditing(sender: AnyObject) {
         self.didChangedTilte = true
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
