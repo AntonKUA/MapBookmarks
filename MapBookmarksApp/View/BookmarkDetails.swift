@@ -70,9 +70,6 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         self.findMapViewController()
         
         entity = NSEntityDescription.entityForName(MapBookmark.entityClass, inManagedObjectContext:context)
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BookmarkDetails.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
     
     func navigationBarNotTransparent () {
@@ -299,8 +296,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         location = CLLocation.init(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
     }
     
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
