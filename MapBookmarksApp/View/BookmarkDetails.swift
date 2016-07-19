@@ -37,7 +37,10 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
     var deletedBookmark = false
     var savedBookmark:NSManagedObject? = nil
 
-    var didChangedTilte = false
+    var initTitleOfBookmark = ""
+    var didChangedTilte : Bool {
+        return !(initTitleOfBookmark == titleField.text)
+    }
     
     var mapViewController: MapViewController? = nil
     
@@ -46,6 +49,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         if (bookmark != nil) {
             titleField.text = bookmark!.title
+            initTitleOfBookmark = bookmark!.title!
         }
         navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: #selector(self.deleteBookmark))
         let newBackButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(self.checkSavePopup))
@@ -216,7 +220,6 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             if (self.deletedBookmark == false && self.didChangedTilte) {
                 saveBookmark()
             }
-
         }
     }
     
@@ -242,7 +245,7 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
             print("Could not save \(error), \(error.userInfo)")
         }
         
-        mapViewController!.selectedBookmark = mapBookmark as! MapBookmark;
+        mapViewController!.selectedBookmark = mapBookmark as? MapBookmark;
     }
     
     func deleteBookmarkFromCoreData () {
@@ -294,10 +297,6 @@ class BookmarkDetails:UIViewController, UITableViewDelegate,UITableViewDataSourc
         self.titleField.text = title
         
         location = CLLocation.init(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
-    }
-    
-    @IBAction func endEditing(sender: AnyObject) {
-        self.didChangedTilte = true
     }
     
     func dismissKeyboard() {

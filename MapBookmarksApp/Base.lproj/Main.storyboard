@@ -125,9 +125,6 @@
                                 <rect key="frame" x="81" y="68" width="499" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="endEditing:" destination="Iua-3i-x4G" eventType="editingDidEnd" id="dWM-DQ-H4t"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-TT-0Hj">
                                 <rect key="frame" x="526" y="153" width="54" height="39"/>
