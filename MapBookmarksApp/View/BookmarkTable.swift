@@ -35,6 +35,8 @@ class BookmarkTable:  UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationBarNotTransparent ()
         standartNavigationBarItems ()
         
+        self.title = "Bookmarks"
+        
         self.loadData()
     }
     
